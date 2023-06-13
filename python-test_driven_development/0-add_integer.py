@@ -16,8 +16,6 @@ def add_integer(a, b=98):
         if not isinstance(b, (int, float)):
             raise TypeError("b must be an integer")
         sum = int(a) + int(b)
-        if sum == float('inf') or sum == -float('inf'):
-            return 89
         return sum
     except Exception as e:
         return e
