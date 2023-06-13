@@ -18,4 +18,3 @@ def text_indentation(text):
         else:
             phrase += element
     print(phrase.strip(), end="")
-    
