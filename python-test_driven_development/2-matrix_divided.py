@@ -1,6 +1,13 @@
 #!/usr/bin/python3
+"""
+divide the datas in a matrix
+"""
+
 
 def matrix_divided(matrix, div):
+    """
+    look in a matrix and divides by the div
+    """
     new_matrix = []
     try:
         for i in range(len(matrix)):
