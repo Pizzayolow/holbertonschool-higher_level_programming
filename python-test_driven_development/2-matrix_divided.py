@@ -1,26 +1,25 @@
 #!/usr/bin/python3
-"""
-divide the datas in a matrix
-"""
+"""matrix_divided"""
 
 
-def matrix_divided(matrix, div):
-    """
-    look in a matrix and divides by the div
-    """
+def matrix_divided(matrix=[], div=1):
+    """Return new matrix with value divided by @div"""
+    if not isinstance(div, (int, float)) or div is None:
+        raise TypeError("div must be a number")
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
+    error = "matrix must be a matrix (list of lists) of integers/floats"
+    size = None
     new_matrix = []
-    try:
-        for i in range(len(matrix)):
-            temp = []
-            for element in range(len(matrix[i])):
-                result = matrix[i][element] / div
-                temp.append(round(result, 2))
-            new_matrix.append(temp)
-        return(new_matrix)
-    except:
-        if matrix is not int or float:
-            raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-        if div is not int or float:
-            raise TypeError("div must be a number")
-        if div == 0:
-            raise ZeroDivisionError("division by zero")
+    j = 0
+    for i in matrix:
+        new_matrix.append([])
+        if size and size != len(i):
+            raise TypeError("Each row of the matrix must have the same size")
+        size = len(i)
+        for element in i:
+            if not isinstance(element, (int, float)):
+                raise TypeError(error)
+            new_matrix[j].append(round(element / div, 2))
+        j += 1
+    return new_matrix
