@@ -57,3 +57,6 @@ class TestMaxInteger(unittest.TestCase):
         data = [10, 22.88, 11, 88, 1, 4, 7]
         for element in range(len(data)):
             self.assertIsInstance(data[element], (int, float))
+
+if __name__ == '__main__':
+    unittest.main()
