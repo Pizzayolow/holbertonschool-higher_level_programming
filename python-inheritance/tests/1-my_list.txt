@@ -1,0 +1,9 @@
+>>> print_sorted = __import__('1-my_list').MyList
+
+Now use it:
+
+    >>> print_sorted([1, 22, 65, 5, 7])
+    [1, 5, 7, 22, 65]
+
+    >>> print_sorted[(1, 2, 3, 4, 5)]
+    [1, 2, 3, 4, 5]
