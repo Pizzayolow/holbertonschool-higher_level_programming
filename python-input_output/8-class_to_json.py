@@ -3,7 +3,7 @@
 
 
 def class_to_json(obj):
-    # Check if the object is a dictionary, list, string, integer, or boolean
+    '''class to JSON'''
     if isinstance(obj, dict):
         return {key: class_to_json(value) for key, value in obj.items()}
     elif isinstance(obj, list):
@@ -11,7 +11,6 @@ def class_to_json(obj):
     elif isinstance(obj, str) or isinstance(obj, int) or isinstance(obj, bool):
         return obj
     
-    # If the object is not a basic data type, convert it to a dictionary
     attributes = {}
     for attr in obj.__dict__:
         value = getattr(obj, attr)
