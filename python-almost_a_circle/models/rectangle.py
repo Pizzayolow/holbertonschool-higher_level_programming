@@ -107,7 +107,7 @@ class Rectangle(Base):
                 count += 1
         else:
             for key, value in kwargs.items():
-                if key == id:
+                if key == "id":
                     self.id = value
                 if key == "width":
                     self.__width = value
