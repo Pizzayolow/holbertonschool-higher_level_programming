@@ -92,7 +92,7 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         '''assigns arguments'''
         count = 0
-        if args is not None:
+        if kwargs is None:
             for arg in args:
                 if count == 0:
                     self.id = arg
@@ -105,14 +105,15 @@ class Rectangle(Base):
                 if count == 4:
                     self.__y = arg
                 count += 1
-        for key, value in kwargs.items():
-            if key == id:
-                self.id = value
-            if key == "width":
-                self.__width = value
-            if key == "height":
-                self.__height = value
-            if key == "x":
-                self.__x = value
-            if key == "y":
-                self.__y = value
+        else:
+            for key, value in kwargs.items():
+                if key == id:
+                    self.id = value
+                if key == "width":
+                    self.__width = value
+                if key == "height":
+                    self.__height = value
+                if key == "x":
+                    self.__x = value
+                if key == "y":
+                    self.__y = value
