@@ -15,7 +15,7 @@ class Square(Rectangle):
 
     def __str__(self):
         '''overwriting str class'''
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
 
     @property
     def size(self):
@@ -32,3 +32,28 @@ class Square(Rectangle):
         else:
             self.width = value
             self.height = value
+
+    def update(self, *args, **kwargs):
+        '''update for square'''
+        count = 0
+        if not kwargs:
+            for arg in args:
+                if count == 0:
+                    self.id = arg
+                if count == 1:
+                    self.size = arg
+                if count == 2:
+                    self.x = arg
+                if count == 3:
+                    self.y = arg
+                count += 1
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "size":
+                    self.size = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
