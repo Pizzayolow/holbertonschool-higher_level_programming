@@ -3,6 +3,7 @@
 
 
 import json
+import os
 
 
 class Base:
@@ -58,3 +59,18 @@ class Base:
             my_rectangle = path(2, 3)
         my_rectangle.update(**dictionary)
         return (my_rectangle)
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        filename = cls.__name__ + ".json"
+        if not os.path.exists(filename):
+            return []
+
+        with open(filename, "r") as f:
+            file_content = f.read()
+
+        instances_dict = cls.from_json_string(file_content)
+        instances = [cls.create(**data) for data in instances_dict]
+
+        return instances
