@@ -47,3 +47,14 @@ class Base:
         if json_string is None:
             return my_list
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        '''dictionnary to instance'''
+        path = cls
+        if cls.__name__ == "Square":
+            my_rectangle = path(5)
+        else:
+            my_rectangle = path(2, 3)
+        my_rectangle.update(**dictionary)
+        return (my_rectangle)
