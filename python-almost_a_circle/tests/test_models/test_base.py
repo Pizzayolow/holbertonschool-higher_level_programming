@@ -48,7 +48,7 @@ class TestBaseStaticMethod(unittest.TestCase):
         self.assertEqual(type(Base.from_json_string(json_string)), list)
 
     def test_outputEmptyTypeFromJsonString(self):
-        # test output function if None as input is a empty list
+        # test output kfunction if None as input is a empty list
         json_string = None
         self.assertEqual(Base.from_json_string(json_string), [])
 

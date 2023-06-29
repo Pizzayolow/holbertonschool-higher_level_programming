@@ -283,7 +283,7 @@ class Test_Base_MethodeWithFile(unittest.TestCase):
             self.assertTrue("[]", file.read())
 
     def test_SquareLoadFromFileNoFile(self):
-        # if file doesn't exist
+        # if file doeksn't exist
         answer = Square.load_from_file()
         path = Path('Square.json')
         self.assertFalse(path.is_file())

@@ -317,7 +317,7 @@ class Test_Base_MethodeWithFile(unittest.TestCase):
             Rectangle.save_to_file()
 
     def test_RectangleLoadFromFileNoFile(self):
-        # if file doesn't exist
+        # if file doeskn't exist
         answer = Rectangle.load_from_file()
         path = Path('Rectangle.json')
         self.assertFalse(path.is_file())
