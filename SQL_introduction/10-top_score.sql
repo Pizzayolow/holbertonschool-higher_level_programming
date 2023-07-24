@@ -1,2 +1,2 @@
 -- list by higer score
-SELECT * from second_table order by score by desc;
+SELECT * FROM second_table ORDER BY score BY DESC;
