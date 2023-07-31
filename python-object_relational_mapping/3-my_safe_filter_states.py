@@ -17,7 +17,7 @@ if __name__ == "__main__":
         query = text('SELECT * FROM states WHERE BINARY name = :value \
             ORDER BY states.id ASC')
 
-        result = connection.execute(query, {"value":state_name})
+        result = connection.execute(query, {"value": state_name})
 
         for row in result:
             print(row)
