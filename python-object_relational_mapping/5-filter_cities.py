@@ -25,7 +25,7 @@ if __name__ == "__main__":
         WHERE states.name=%s
         ORDER BY cities.id
         """, (sys.argv[4],))
-    
+
     rows = cursor.fetchone()
     if rows[0] is None:
         print("")
