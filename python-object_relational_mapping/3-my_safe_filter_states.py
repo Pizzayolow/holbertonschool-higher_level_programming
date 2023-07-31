@@ -1,23 +1,32 @@
 #!/usr/bin/python3
-"""A script that lists all states from the database hbtn_0e_0_usa"""
+"""A script that takes in an argument and displays all values in the states
+table of hbtn_0e_0_usa where name matches the argument"""
 
-from sqlalchemy import create_engine, text
+import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    user = sys.argv[1]
-    passwd = sys.argv[2]
-    dbname = sys.argv[3]
-    state_name = sys.argv[4]
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
+    )
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306\
-        /{}'.format(user, passwd, dbname))
+    cursor = db.cursor()
+    cursor.execute(
+        """
+        SELECT *
+        FROM states
+        WHERE states.name LIKE BINARY %s
+        ORDER BY states.id
+        """, (sys.argv[4],)
+    )
 
-    with engine.connect() as connection:
-        query = text('SELECT * FROM states WHERE BINARY name = :value \
-            ORDER BY states.id ASC')
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
 
-        result = connection.execute(query, {"value": state_name})
-
-        for row in result:
-            print(row)
+    cursor.close()
+    db.close()
