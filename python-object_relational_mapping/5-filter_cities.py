@@ -24,12 +24,14 @@ if __name__ == "__main__":
         ON states.id=cities.state_id
         WHERE states.name=%s
         ORDER BY cities.id
-        """, (sys.argv[4],),
-    )
-
+        """, (sys.argv[4],))
+    
     rows = cursor.fetchone()
-    for row in rows:
-        print(row)
+    if rows[0] is None:
+        print("")
+    else:
+        for row in rows:
+            print(row)
 
     cursor.close()
     db.close()
