@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     for row in s:
         session.delete(row)
-        
+
     session.commit()
 
     """Close the session"""
