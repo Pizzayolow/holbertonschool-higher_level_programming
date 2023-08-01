@@ -21,8 +21,7 @@ if __name__ == "__main__":
         print("Nothing")
 
     else:
-        for state in s:
-            print("{}: {}".format(state.id, state.name))
+            print("{}: {}".format(s.id, s.name))
 
     """Close the session"""
     session.close()
