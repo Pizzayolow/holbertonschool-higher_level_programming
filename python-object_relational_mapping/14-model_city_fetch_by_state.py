@@ -15,8 +15,8 @@ if __name__ == "__main__":
     session = Session(engine)
 
     # RECUPERER LES OBJETS
-    villes = session.query(State, City).join(City, 
-        City.state_id == State.id).order_by(City.id).all()
+    villes = session.query(State, City)\
+        .join(City, City.state_id == State.id).order_by(City.id).all()
 
     for el1, el2 in villes:
         print(f"{el1.name}: ({el2.id}) {el2.name}")
