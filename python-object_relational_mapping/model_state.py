@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Base class"""
 from sqlalchemy import Column, Integer, String, Table
 from sqlalchemy.ext.declarative import declarative_base
@@ -8,7 +9,7 @@ class State(Base):
     """class base"""
     __tablename__ = 'states'
     id = Column(Integer,
-                Unique=True,
+                unique=True,
                 primary_key=True,
                 autoincrement=True,
                 nullable=False)
