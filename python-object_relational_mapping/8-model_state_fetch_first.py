@@ -16,12 +16,12 @@ if __name__ == "__main__":
     session = Session()
 
     """Query the database and format output"""
-    states = session.query(State).first()
-    if states is None:
+    s = session.query(State).first()
+    if s is None:
         print("Nothing")
 
     else:
-        for state in states:
+        for state in s:
             print("{}: {}".format(state.id, state.name))
 
     """Close the session"""
