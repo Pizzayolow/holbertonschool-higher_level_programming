@@ -16,7 +16,7 @@ if __name__ == "__main__":
     session = Session()
 
     """Query the database and format output"""
-    states = session.query(State).where(State.id == 1)
+    states = session.query(State).first()
     if states is None:
         print("Nothing")
 
