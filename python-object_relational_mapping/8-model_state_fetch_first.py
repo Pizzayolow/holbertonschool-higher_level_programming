@@ -17,8 +17,13 @@ if __name__ == "__main__":
 
     """Query the database and format output"""
     states = session.query(State).where(State.id==1).order_by(State.id)
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    if states is None:
+        print("Nothing")
+    
+    else: 
+        for state in states:
+            print("{}: {}".format(state.id, state.name))
 
+    
     """Close the session"""
     session.close()
