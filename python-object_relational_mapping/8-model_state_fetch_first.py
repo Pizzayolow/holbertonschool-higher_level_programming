@@ -21,7 +21,7 @@ if __name__ == "__main__":
         print("Nothing")
 
     else:
-            print("{}: {}".format(s.id, s.name))
+        print("{}: {}".format(s.id, s.name))
 
     """Close the session"""
     session.close()
